@@ -4,7 +4,7 @@ from core.models import Post, Categories, Comments, Tag
 
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ("title", "category", "author", "created_at", )
+    list_display = ("title", "category", "author", "created_at",)
     search_fields = ("title", "author", "created_at", )
     readonly_fields = ("created_at", "number_of_views", )
 
@@ -24,4 +24,4 @@ class CommentsAdmin(admin.ModelAdmin):
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
     list_display = ("title", )
-    search_fields = ("posts", )
+    search_fields = ("posts", "title")

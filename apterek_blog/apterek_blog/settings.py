@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apterek_blog',
     'crispy_forms',
+    'core',
 ]
 
 MIDDLEWARE = [

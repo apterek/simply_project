@@ -1,20 +1,4 @@
-<style>
-
-.nav-link{
-    color: #4c5866;
-}
-.nav-link:hover, .nav-link:focus{
-    color: #0653ff;
-}
-
-.dropdown-menu.show{
-    display: block ruby;
-}
-
-</style>
-
-
-<header class="navbar-light navbar-sticky header-static">
+<header class="navbar-light navbar-sticky header-static py-3 my-4">
     <!-- first nav + border -->
 	<div class="navbar-top d-none d-lg-block small">
 		<div class="container">
@@ -60,10 +44,7 @@
 			<div class="border-bottom border-2" style="color: rgb(88, 92, 104)"></div>
 		</div>
 	</div>
-
-
-
-	<!-- Logotip -->
+    <!-- second header -->
 	<nav class="navbar navbar-expand-lg">
 		<div class="container">
 			<a class="navbar-brand media-right" style="width: 120px;" href="">
@@ -71,18 +52,20 @@
 			</a>
 
 			<!-- Main navbar START -->
-			<div class="collapse navbar-collapse" id="navbarCollapse">
-				<ul class="navbar-nav navbar-nav-scroll mx-auto">
+			<div class="collapse navbar-collapse">
 
+				<ul class="navbar-nav navbar-nav-scroll mx-auto">
 					<!-- Nav dropdown 1 -->
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle active" href="#" id="homeMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Home</a>
+						<a class="nav-link dropdown-toggle active" href="#" id="homeMenu" role="button" data-bs-toggle="dropdown" aria-expanded="true">Home</a>
+
 						<ul class="dropdown-menu" aria-labelledby="homeMenu">
-							<li> <a class="dropdown-item active" href="index.html">Home default</a></li>
-							<li> <a class="dropdown-item" href="index-2.html">Magazine classic</a></li>
-							<li> <a class="dropdown-item" href="index-3.html">Magazine</a></li>
-							<li> <a class="dropdown-item" href="index-4.html">Home cards</a></li>
-							<li> <a class="dropdown-item" href="index-5.html">Blog classic</a></li>
+
+							<li> <a class="dropdown-item" href="#">Home default</a></li>
+							<li> <a class="dropdown-item" href="#">Magazine classic</a></li>
+							<li> <a class="dropdown-item" href="#">Magazine</a></li>
+							<li> <a class="dropdown-item" href="#">Home cards</a></li>
+							<li> <a class="dropdown-item" href="#">Blog classic</a></li>
 						</ul>
 					</li>
 
@@ -133,23 +116,23 @@
 							</li>
 							<li class="dropdown-divider"></li>
 							<li>
-								<a class="dropdown-item" href="https://support.webestica.com/" target="_blank">
+								<a class="dropdown-item" href="#" target="_blank">
 									<i class="text-warning fa-fw bi bi-life-preserver me-2"></i>Support
 								</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="docs/index.html" target="_blank">
+								<a class="dropdown-item" href="#" target="_blank">
 									<i class="text-danger fa-fw bi bi-card-text me-2"></i>Documentation
 								</a>
 							</li>
 							<li class="dropdown-divider"></li>
 							<li>
-								<a class="dropdown-item" href="https://blogzine.webestica.com/rtl" target="_blank">
+								<a class="dropdown-item" href="#" target="_blank">
 									<i class="text-info fa-fw bi bi-toggle-off me-2"></i>RTL demo
 								</a>
 							</li>
 							<li>
-								<a class="dropdown-item" href="https://themes.getbootstrap.com/store/webestica/" target="_blank">
+								<a class="dropdown-item" href="#" target="_blank">
 									<i class="text-success fa-fw bi bi-cloud-download-fill me-2"></i>Buy blogzine!
 								</a>
 							</li>
@@ -164,26 +147,26 @@
 							<li class="dropdown-submenu dropend">
 								<a class="dropdown-item dropdown-toggle" href="#">Post grid</a>
 								<ul class="dropdown-menu dropdown-menu-start" data-bs-popper="none">
-									<li> <a class="dropdown-item" href="post-grid.html">Post grid</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-4-col.html">Post grid 4 col</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-masonry.html">Post grid masonry</a> </li>
-									<li> <a class="dropdown-item" href="post-grid-masonry-filter.html">Post grid masonry filter</a> </li>
-									<li> <a class="dropdown-item" href="post-large-and-grid.html">Post mixed large than grid</a> </li>
+									<li> <a class="dropdown-item" href="#">Post grid</a> </li>
+									<li> <a class="dropdown-item" href="#">Post grid 4 col</a> </li>
+									<li> <a class="dropdown-item" href="#">Post grid masonry</a> </li>
+									<li> <a class="dropdown-item" href="#">Post grid masonry filter</a> </li>
+									<li> <a class="dropdown-item" href="#">Post mixed large than grid</a> </li>
 								</ul>
 							</li>
-							<li> <a class="dropdown-item" href="post-list.html">Post list</a> </li>
-							<li> <a class="dropdown-item" href="post-list-2.html">Post list 2</a> </li>
-							<li> <a class="dropdown-item" href="post-cards.html">Post card</a> </li>
-							<li> <a class="dropdown-item" href="post-overlay.html">Post overlay</a> </li>
+							<li> <a class="dropdown-item" href="#">Post list</a> </li>
+							<li> <a class="dropdown-item" href="#">Post list 2</a> </li>
+							<li> <a class="dropdown-item" href="#">Post card</a> </li>
+							<li> <a class="dropdown-item" href="#">Post overlay</a> </li>
 							<li class="dropdown-divider"></li>
-							<li> <a class="dropdown-item" href="post-single.html">Post single magazine</a> </li>
-							<li> <a class="dropdown-item" href="post-single-2.html">Post single classic</a> </li>
-							<li> <a class="dropdown-item" href="post-single-3.html">Post single minimal</a> </li>
-							<li> <a class="dropdown-item" href="post-single-4.html">Post single card</a> </li>
-							<li> <a class="dropdown-item" href="post-single-5.html">Post single review</a> </li>
-							<li> <a class="dropdown-item" href="post-single-6.html">Post single video</a> </li>
+							<li> <a class="dropdown-item" href="#">Post single magazine</a> </li>
+							<li> <a class="dropdown-item" href="#">Post single classic</a> </li>
+							<li> <a class="dropdown-item" href="#">Post single minimal</a> </li>
+							<li> <a class="dropdown-item" href="#">Post single card</a> </li>
+							<li> <a class="dropdown-item" href="#">Post single review</a> </li>
+							<li> <a class="dropdown-item" href="#">Post single video</a> </li>
 							<li class="dropdown-divider"></li>
-							<li> <a class="dropdown-item" href="pagination-styles.html">Pagination styles</a> </li>
+							<li> <a class="dropdown-item" href="#">Pagination styles</a> </li>
 						</ul>
 					</li>
 
@@ -197,7 +180,7 @@
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
 											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/01.jpg" alt="Card image">
+											<img class="card-img rounded" src="#" alt="Card image">
 											<div class="card-body px-0 pt-3">
 												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">7 common mistakes everyone makes while traveling</a></h6>
 												<!-- Card info -->
@@ -215,7 +198,7 @@
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
 											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/02.jpg" alt="Card image">
+											<img class="card-img rounded" src="#" alt="Card image">
 											<div class="card-body px-0 pt-3">
 												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">12 worst types of business accounts you follow on Twitter</a></h6>
 												<!-- Card info -->
@@ -233,7 +216,7 @@
 									<div class="col-sm-6 col-lg-3">
 										<div class="card bg-transparent">
 											<!-- Card img -->
-											<img class="card-img rounded" src="assets/images/blog/16by9/small/03.jpg" alt="Card image">
+											<img class="card-img rounded" src="#" alt="Card image">
 											<div class="card-body px-0 pt-3">
 												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">Skills that you can learn from business</a></h6>
 												<!-- Card info -->
@@ -300,11 +283,15 @@
 					<a class="nav-link dropdown-toggle" role="button" href="#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">
 						<i class="bi bi-search fs-4"> </i>
 					</a>
-					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" aria-labelledby="navSearch">
-					  <form class="input-group">
-					    <input class="form-control border-success" type="search" placeholder="Search" aria-label="Search">
-					    <button class="btn btn-success m-0" type="submit">Search</button>
-					  </form>
+					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" style="width: 300px" aria-labelledby="navSearch">
+					  <nav class="navbar navbar-light bg-light">
+                          <div class="container-fluid">
+                            <form class="d-flex">
+                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                              <button class="btn btn-outline-success" type="submit">Search</button>
+                            </form>
+                          </div>
+                        </nav>
 					</div>
 				</div>
 
@@ -314,3 +301,30 @@
 		</div>
 	</nav>
 </header>
+
+<style>
+
+.nav-link{
+    color: #4c5866;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #4c5866;
+}
+
+.nav-link:hover, .nav-link:focus{
+    color: #0653ff;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #0653ff;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #0653ff;
+}
+
+.dropdown-menu1.show {
+  display: block ruby;
+}
+
+</style>

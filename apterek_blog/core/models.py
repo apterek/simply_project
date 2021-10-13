@@ -15,6 +15,7 @@ class Post(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
 
+
     class Meta:
         verbose_name = "Post"
         verbose_name_plural = "Posts"
@@ -59,8 +60,8 @@ class Comments(models.Model):
 
 
 class Tag(models.Model):
-    title = models.CharField(max_length=10, unique=True)
-    posts = models.ManyToManyField(Post, related_name="tags")
+    title = models.CharField(max_length=100, unique=True)
+    posts = models.ManyToManyField(Post, related_name="tags", blank=True)
 
     class Meta:
         verbose_name = "Tag"

@@ -12,3 +12,6 @@
 .nav-link{
     color: dimgray;
 }
+.dark-mode{
+    background-color: black;
+}
