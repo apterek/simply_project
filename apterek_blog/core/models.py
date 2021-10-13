@@ -14,7 +14,7 @@ class Post(models.Model):
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_published = models.BooleanField(default=False)
-
+    likes = models.PositiveIntegerField(default=0)
 
     class Meta:
         verbose_name = "Post"

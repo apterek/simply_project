@@ -1,10 +1,25 @@
 {% extends "base.html" %}
   {% block content %}
+    <div class="container">
 
       {% for p in post %}
-          {{ p.title }}
-          {{ p.tags.aggregate }}
-
+          <div class="col-lg-9">
+            <div class="card">
+                <img src="{{ p.post_image.url }}" alt="{{ p.title }}">
+              <a href="#"> <H1>{{ p.title }}</H1></a>
+              {{ p.content }}
+              {{ p.tags.aggregate }}
+            </div>
+          </div>
+          <br>
       {% endfor %}
+    </div>
 
+<style>
+
+.post-image{
+
+}
+
+</style>
   {% endblock %}

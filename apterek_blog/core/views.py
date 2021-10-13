@@ -4,5 +4,5 @@ from core.models import Post, Tag
 
 
 def index(request):
-    posts = Post.objects.all().filter(tags=4)
+    posts = Post.objects.all()
     return render(request, "homepage.html", {"post": posts})
