@@ -1,25 +1,118 @@
 {% extends "base.html" %}
   {% block content %}
-    <div class="container">
+<section class="py-1" style="margin-bottom: 40px;padding-bottom: 1.25rem;">
+	<div class="container">
+		<div class="row g-0">
+			<div class="col-12 bg-for-border-main-page p-2 rounded">
+                <div class="d-sm-flex align-items-center text-center text-sm-start">
+                    <div class="me-3">
+						<span class="badge bg-primary p-2 px-3">Trending:</span>
+					</div>
 
-      {% for p in post %}
-          <div class="col-lg-9">
-            <div class="card">
-                <img src="{{ p.post_image.url }}" alt="{{ p.title }}">
-              <a href="#"> <H1>{{ p.title }}</H1></a>
-              {{ p.content }}
-              {{ p.tags.aggregate }}
-            </div>
-          </div>
-          <br>
-      {% endfor %}
+                    <div id="carouselExampleControls" class="carousel slide col-md-10" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                          1
+                        </div>
+                        <div class="carousel-item">
+                          2
+                        </div>
+                        <div class="carousel-item">
+                          3
+                        </div>
+                      </div>
+                    </div>
+
+                        <div class="conteiner" style="padding-left: 40px;">
+                          <button class="btn btn-sm" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <
+                          </button>
+                          <button class="btn btn-sm" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                              >
+                          </button>
+                            </div>
+
+                    </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+  {% for p in post %}
+    <div class="col-lg-9">
+    <div class="container item-list">
+    <div class="content">
+
+        <a href="#"> <h2>{{ p.title }}</h2></a>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="post-image-homepage" style="height: 273px">
+                <img class="img-fluid rounded float-start" src="{{ p.post_image.url }}" alt="{{ p.title }}" style="width: unset" >
+                </div>
+        </div>
+        <div class="col-md-8 post-box-title" style="height: 90%">
+              {{ p.content|truncatewords:100 }}
+        </div>
     </div>
+    </div>
+    </div>
+    </div>
+          <br>
+
+      {% endfor %}
 
 <style>
 
-.post-image{
+h2 {
+
+    font-size: 26px;
+    line-height: 26px;
+    font-weight: normal;
 
 }
 
+a {
+    color: #444;
+    text-decoration: none;
+
+        text-decoration-style: solid;
+        text-decoration-color: currentcolor;
+        text-decoration-thickness: auto;
+}
+
+
+.bg-for-border-main-page{
+    background-color: #2163E819;
+}
+.py-1 {
+    padding-top: .25rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.btn{
+    background-color: #fff;
+    border: 1px solid #dd090900;
+}
+.btn:hover{
+    background-color: #0653ff;
+}
+
+.item-list {
+    border-bottom: 1px solid #f2f2f2;
+    padding: 20px 20px 25px;
+    clear: both;
+    border-bottom: 1px solid #f2f2f2;
+    height: 100%;
+}
+
+.post-image-homepage{
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+    transition: all .40s;
+    border: 1px solid #F7F7F7;
+    display: flex;
+}
 </style>
+
   {% endblock %}
