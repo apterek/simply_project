@@ -5,31 +5,34 @@
 		<div class="row g-0">
 			<div class="col-12 bg-for-border-main-page p-2 rounded">
                 <div class="d-sm-flex align-items-center text-center text-sm-start">
-                    <div class="me-3">
+                    <div class="simple" style="" >
 						<span class="badge bg-primary p-2 px-3">Trending:</span>
 					</div>
 
                     <div id="carouselExampleControls" class="carousel slide col-md-10" data-bs-ride="carousel">
                       <div class="carousel-inner">
                         <div class="carousel-item active">
-                          1
+                            {{ best_post1.title }}
+                        </div>
+
+                        <div class="carousel-item">
+                          {{ best_post2.title }}
                         </div>
                         <div class="carousel-item">
-                          2
-                        </div>
-                        <div class="carousel-item">
-                          3
+                          {{ best_post3.title }}
                         </div>
                       </div>
                     </div>
 
-                        <div class="conteiner" style="padding-left: 40px;">
+                        <div class="conteiner" style="padding-left: 30px;">
+                            <div class="simple">
                           <button class="btn btn-sm" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                             <
                           </button>
                           <button class="btn btn-sm" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
                               >
                           </button>
+                            </div>
                             </div>
 
                     </div>
@@ -66,6 +69,20 @@
       {% endfor %}
 
 <style>
+@media (max-width: 900px) {
+    .simple button {
+        display: none;
+    }
+}
+@media (min-width: 900px) {
+    .simple span {
+        margin-right: 20px;
+    }
+}
+.simple{
+    border: 1px lavender;
+}
+
 
 h2 {
 

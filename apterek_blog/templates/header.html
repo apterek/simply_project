@@ -55,8 +55,14 @@
 				<img class="navbar-brand-item light-mode-item"  src="../static/logo2.png" alt="lsssas">
 			</a>
 
+            <button class="navbar-toggler ms-auto collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="text-body h6 d-none d-sm-inline-block">Menu</span>
+			  <span class="navbar-toggler-icon"></span>
+		  </button>
+
+
 			<!-- Main navbar START -->
-			<div class="collapse navbar-collapse">
+			<div class="collapse navbar-collapse" id="navbarCollapse">
 
 				<ul class="navbar-nav navbar-nav-scroll mx-auto">
 					<!-- Nav dropdown 1 -->
@@ -263,7 +269,7 @@
 					</li>
 
 					<!-- Nav last-->
-					<li class="nav-item">	<a class="nav-link" href="../docs/alerts.html">Components</a></li>
+					<li class="nav-item">	<a class="nav-link" href="#">Components</a></li>
 				</ul>
 			</div>
 
@@ -281,8 +287,9 @@
 				<!-- Nav Search -->
 				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search">
 					<a class="nav-link dropdown-toggle" role="button" href="#" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">
-						<i class="bi bi-search fs-4"> </i>
+						<img src="../static/search_img.png" style="width: 30px">
 					</a>
+
 					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" style="width: 300px" aria-labelledby="navSearch">
 					  <nav class="navbar navbar-light bg-light">
                           <div class="container-fluid">
@@ -337,5 +344,7 @@
 .fs-5 {
     font-size: 1.2em !important;
 }
+
+.dropdown-toggle:focus{outline:10px}
 
 </style>
