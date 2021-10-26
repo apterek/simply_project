@@ -69,3 +69,13 @@ class Tag(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Subscribers(models.Model):
+    email = models.EmailField(max_length=30, unique=True)
+    auth = models.BooleanField(default=False)
+    subscribe_date = models.DateTimeField(auto_now_add=True, db_index=True)
+
+    class Meta:
+        verbose_name = "Subscribers"
+        verbose_name_plural = "Subscribers"

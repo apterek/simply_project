@@ -1,5 +1,5 @@
 from django.contrib import admin
-from core.models import Post, Categories, Comments, Tag
+from core.models import Post, Categories, Comments, Tag, Subscribers
 
 
 @admin.register(Post)
@@ -25,3 +25,9 @@ class CommentsAdmin(admin.ModelAdmin):
 class TagAdmin(admin.ModelAdmin):
     list_display = ("title", )
     search_fields = ("posts", "title")
+
+
+@admin.register(Subscribers)
+class SubscribersAdmin(admin.ModelAdmin):
+    list_display = ("email", "auth", "subscribe_date", )
+    readonly_fields = ("subscribe_date", )

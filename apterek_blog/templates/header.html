@@ -6,18 +6,16 @@
 			<div class="d-md-flex justify-content-between align-items-center my-2">
 				<!-- Top bar left -->
 				<ul class="nav">
-					<li class="nav-item">
-						<a class="nav-link ps-0" href="about-us.html">About</a>
+                    <li class="nav-item">
+						<a class="nav-link ps-0" href="#">Main</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Forum</a>
+						<a class="nav-link ps-0" href="#">About</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="https://themes.getbootstrap.com/store/webestica/">Buy now!</a>
+						<a class="nav-link ps-0" href="#">Login / Join</a>
 					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="signin.html">Login / Join</a>
-					</li>
+
 				</ul>
 				<!-- Top bar right -->
 				<div class="d-flex align-items-center">
@@ -280,9 +278,43 @@
 			<div class="nav flex-nowrap align-items-center">
                 <!-- button Subscribe -->
 				<div class="nav-item d-none d-md-block">
-					<a href="#" class="btn btn-sm btn-primary mb-0 mx-2" style="background-color: #217c4a;">Subscribe!</a>
-				</div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            data-bs-whatever="@getbootstrap" style="background-color: #217c4a;">Subscribe!</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Enter your email for subscribe</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
 
+                            <form action="{% url 'home' %}" method="post">
+                                {% csrf_token %}
+                                {{ form.non_field.errors }}
+                              <div class="mb-3">
+                                <label for="{{ form.email.id_for_label }}" class="col-form-label">Email:</label>
+                                {{ form.email }}
+                              </div>
+                                <div class="invalid-feedback">
+                                    {{ form.email.errors }}
+                                </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            style="background-color: #5b5d5b;">Close</button>
+                              <input type="hidden" name="action" value="add_subscriber">
+                            <button type="submit" class="btn btn-success"
+                             style="background-color: #217c4a;">Send message</button>
+                          </div>
+                            </form>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+				</div>
 
 				<!-- Nav Search -->
 				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search">
@@ -293,9 +325,10 @@
 					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" style="width: 300px" aria-labelledby="navSearch">
 					  <nav class="navbar navbar-light bg-light">
                           <div class="container-fluid">
-                            <form class="d-flex">
-                              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                              <button class="btn btn-outline-success" type="submit">Search</button>
+                            <form class="d-flex" action=".">
+                              <input class="form-control me-2" id="search_field" name="search_field"
+                                     type="search" placeholder="Search by posts" aria-label="Search">
+                              <button class="btn btn-outline-success" id="search_submit" type="submit">Search</button>
                             </form>
                           </div>
                         </nav>
