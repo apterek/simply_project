@@ -2,7 +2,7 @@ from django.shortcuts import redirect
 from core.models import Post
 from core.services import take_a_three_best_post, create_new_subscribe, search_post
 from core.forms import SubscriberForm
-from django.views.generic import CreateView
+from django.views.generic import CreateView, TemplateView
 from django.contrib import messages
 
 
@@ -10,7 +10,7 @@ class HomepageView(CreateView):
     template_name = "homepage.html"
 
     def get_context_data(self, **kwargs):
-        search_query = self.request.GET.get("search_field", None)
+        search_query = self.request.GET.get("search_field", None)  # If the search form is submitted
         if search_query:
             posts = search_post(search_query)
         else:
@@ -31,3 +31,10 @@ class HomepageView(CreateView):
             messages.info(self.request, "Thanks for subscribe!")
             return redirect("home")
 
+
+class AboutView(TemplateView):
+    template_name = "about/about.html"
+
+    def get_context_data(self, **kwargs):
+        posts = Post.objects.filter(pk=2)
+        return {"posts": posts}

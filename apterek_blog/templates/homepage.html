@@ -1,72 +1,9 @@
 {% extends "base.html" %}
   {% block content %}
-<section class="py-1" style="margin-bottom: 40px;padding-bottom: 1.25rem;">
-	<div class="container">
-		<div class="row g-0">
-			<div class="col-12 bg-for-border-main-page p-2 rounded">
-                <div class="d-sm-flex align-items-center text-center text-sm-start">
-                    <div class="simple" style="" >
-						<span class="badge bg-primary p-2 px-3">Trending:</span>
-					</div>
 
-                    <div id="carouselExampleControls" class="carousel slide col-md-10" data-bs-ride="carousel">
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            {{ best_post1.title }}
-                        </div>
+{% include "core_posts/carousel.html" %}
 
-                        <div class="carousel-item">
-                          {{ best_post2.title }}
-                        </div>
-                        <div class="carousel-item">
-                          {{ best_post3.title }}
-                        </div>
-                      </div>
-                    </div>
-
-                        <div class="conteiner" style="padding-left: 30px;">
-                            <div class="simple">
-                          <button class="btn btn-sm" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                            <
-                          </button>
-                          <button class="btn btn-sm" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                              >
-                          </button>
-                            </div>
-                            </div>
-
-                    </div>
-			</div>
-		</div>
-	</div>
-</section>
-
-  {% for p in post %}
-    <div class="col-lg-9">
-    <div class="container item-list">
-    <div class="content">
-
-        <a href="#"> <h2>{{ p.title }}</h2></a>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="post-image-homepage" style="height: 273px">
-                <img class="img-fluid rounded float-start" src="{{ p.post_image.url }}" alt="{{ p.title }}" style="width: unset" >
-                </div>
-        </div>
-        <div class="col-md-8 post-box-title" style="height: 90%">
-              {{ p.content|truncatewords:100 }}
-            <br>
-            <button type="button" class="custom-btn btn-1">Read more</button>
-        </div>
-
-
-    </div>
-    </div>
-    </div>
-    </div>
-          <br>
-
-      {% endfor %}
+{% include "core_posts/list_posts.html" %}
 
 <style>
 @media (max-width: 900px) {
@@ -79,11 +16,6 @@
         margin-right: 20px;
     }
 }
-.simple{
-    border: 1px lavender;
-}
-
-
 h2 {
 
     font-size: 26px;
@@ -91,7 +23,6 @@ h2 {
     font-weight: normal;
 
 }
-
 a {
     color: #444;
     text-decoration: none;
@@ -100,72 +31,5 @@ a {
         text-decoration-color: currentcolor;
         text-decoration-thickness: auto;
 }
-
-
-.bg-for-border-main-page{
-    background-color: #2163E819;
-}
-.py-1 {
-    padding-top: .25rem !important;
-    padding-bottom: 1rem !important;
-}
-
-.btn{
-    background-color: #fff;
-    border: 1px solid #dd090900;
-}
-.btn:hover{
-    background-color: #0653ff;
-}
-
-.item-list {
-    border-bottom: 1px solid #f2f2f2;
-    padding: 20px 20px 25px;
-    clear: both;
-    border-bottom: 1px solid #f2f2f2;
-    height: 100%;
-}
-
-.post-image-homepage{
-    height: 100%;
-    max-width: 100%;
-    width: 100%;
-    transition: all .40s;
-    border: 1px solid #F7F7F7;
-    display: flex;
-}
-
-.custom-btn {
-  width: 140px;
-  height: 40px;
-  color: #fff;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
-   7px 7px 20px 0px rgba(0,0,0,.1),
-   4px 4px 5px 0px rgba(0,0,0,.1);
-  outline: none;
-}
-
-/* 1 */
-.btn-1 {
-  background: rgb(6,14,131);
-  background: linear-gradient(0deg, rgba(6,14,131,1) 0%, rgba(12,25,180,1) 100%);
-  border: none;
-}
-.btn-1:hover {
-   background: rgb(0,3,255);
-background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
-}
-
-
 </style>
-
   {% endblock %}

@@ -1,0 +1,76 @@
+  {% for p in post %}
+    <div class="col-lg-9">
+    <div class="container item-list">
+    <div class="content">
+
+        <a href="#"> <h2>{{ p.title }}</h2></a>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="post-image-homepage" style="height: 273px">
+                <img class="img-fluid rounded float-start" src="{{ p.post_image.url }}" alt="{{ p.title }}" style="width: unset" >
+                </div>
+        </div>
+        <div class="col-md-8 post-box-title" style="height: 90%">
+              {{ p.content|truncatewords:100 }}
+            <br>
+            <button type="button" class="custom-btn btn-1">Read more</button>
+        </div>
+
+
+    </div>
+    </div>
+    </div>
+    </div>
+          <br>
+
+      {% endfor %}
+
+<style>
+.item-list {
+    border-bottom: 1px solid #f2f2f2;
+    padding: 20px 20px 25px;
+    clear: both;
+    border-bottom: 1px solid #f2f2f2;
+    height: 100%;
+}
+
+.post-image-homepage{
+    height: 100%;
+    max-width: 100%;
+    width: 100%;
+    transition: all .40s;
+    border: 1px solid #F7F7F7;
+    display: flex;
+}
+
+.custom-btn {
+  width: 140px;
+  height: 40px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+
+/* 1 */
+.btn-1 {
+  background: rgb(6,14,131);
+  background: linear-gradient(0deg, rgba(6,14,131,1) 0%, rgba(12,25,180,1) 100%);
+  border: none;
+}
+.btn-1:hover {
+   background: rgb(0,3,255);
+background: linear-gradient(0deg, rgba(0,3,255,1) 0%, rgba(2,126,251,1) 100%);
+}
+
+</style>

@@ -1,0 +1,63 @@
+<section class="py-1" style="margin-bottom: 40px;padding-bottom: 1.25rem;">
+	<div class="container">
+		<div class="row g-0">
+			<div class="col-12 bg-for-border-main-page p-2 rounded">
+                <div class="d-sm-flex align-items-center text-center text-sm-start">
+                    <div class="simple" style="" >
+						<span class="badge bg-primary p-2 px-3">Trending:</span>
+					</div>
+
+                    <div id="carouselExampleControls" class="carousel slide col-md-10" data-bs-ride="carousel">
+                      <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            {{ best_post1.title }}
+                        </div>
+
+                        <div class="carousel-item">
+                          {{ best_post2.title }}
+                        </div>
+                        <div class="carousel-item">
+                          {{ best_post3.title }}
+                        </div>
+                      </div>
+                    </div>
+
+                        <div class="conteiner" >
+                            <div class="simple">
+                          <button class="btn btn-sm" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <
+                          </button>
+                          <button class="btn btn-sm" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                              >
+                          </button>
+                            </div>
+                            </div>
+
+                    </div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<style>
+
+.simple{
+    border: 1px lavender;
+}
+.bg-for-border-main-page{
+    background-color: #2163E819;
+}
+.py-1 {
+    padding-top: .25rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.btn{
+    background-color: #fff;
+    border: 1px solid #dd090900;
+}
+.btn:hover{
+    background-color: #0653ff;
+}
+
+</style>
