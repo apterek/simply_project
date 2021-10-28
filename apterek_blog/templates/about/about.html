@@ -1,10 +1,25 @@
 {% extends "base.html" %}
   {% block content %}
 
+        <div class="container custom-container">
+            <h1>Резюме</h1>
         <div class="row">
-            <div class="col-lg-8">
+            <div class="col-lg-9">
                 {% include "about/resume.html" %}
             </div>
+            <div class="col-lg-3">
+                <div class="custom_img">
+                <img src="../../media/back_1_uvOeFM3.jpg" width="100%">
+                </div>
+            </div>
         </div>
-
+    </div>
+<style>
+.custom-container{
+    padding-top: 35px;
+    padding-bottom: 35px;
+    padding-right: 55px;
+    padding-left: 55px;
+}
+</style>
   {% endblock %}
