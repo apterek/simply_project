@@ -6,14 +6,14 @@
         <a href="#"> <h2>{{ p.title }}</h2></a>
     <div class="row">
         <div class="col-md-4">
-            <div class="post-image-homepage" style="height: 273px">
+            <div class="post-image-homepage" style="height: 285px">
                 <img class="img-fluid rounded float-start" src="{{ p.post_image.url }}" alt="{{ p.title }}" style="width: unset" >
                 </div>
         </div>
         <div class="col-md-8 post-box-title" style="height: 90%">
               {{ p.content|truncatewords:100 }}
             <br>
-            <button type="button" class="custom-btn btn-1">Read more</button>
+            <a href="{% url 'post_detail' p.title %}"><button type="button" class="custom-btn btn-1"> Read more</button></a>
         </div>
 
 

@@ -1,56 +1,6 @@
-{% load static %}
-<header class="navbar-light navbar-sticky header-static py-1 my-1 shadow-custom">
-    <!-- first nav + border -->
-
-	<div class="navbar-top d-none d-lg-block small">
+ <nav class="navbar navbar-expand-lg">
 		<div class="container">
-			<div class="d-md-flex justify-content-between align-items-center my-2">
-				<!-- Top bar left -->
-				<ul class="nav">
-                    <li class="nav-item">
-						<a class="nav-link ps-0" href="{% url 'home' %}">Main</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link ps-0" href="{% url 'about' %}">About</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link ps-0" href="#">Login / Join</a>
-					</li>
-
-				</ul>
-				<!-- Top bar right -->
-				<div class="d-flex align-items-center">
-
-					<ul class="nav">
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="#">1<i class="fab fa-facebook-square"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="#">2<i class="fab fa-twitter-square"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="#">3<i class="fab fa-linkedin"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="#">4<i class="fab fa-youtube-square"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link ps-2 pe-0 fs-5" href="#">5<i class="fab fa-vimeo"></i></a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			<!-- Border line  -->
-			<div class="border-bottom border-2" style="color: rgb(88, 92, 104)"></div>
-		</div>
-	</div>
-    <!-- second header -->
-
-
-
-	 <nav class="navbar navbar-expand-lg">
-		<div class="container">
-			<a class="navbar-brand media-right" style="width: 120px;" href="">
+			<a class="navbar-brand media-right" style="width: 120px;" href="{% url 'home' %}">
 				<img class="navbar-brand-item light-mode-item"  src="../static/logo2.png" alt="lsssas" height="70">
 			</a>
 
@@ -70,7 +20,7 @@
 
 						<ul class="dropdown-menu" aria-labelledby="homeMenu">
 
-							<li> <a class="dropdown-item" href="#">Home default</a></li>
+							<li> <a class="dropdown-item" href="{% url 'home' %}">Home default</a></li>
 							<li> <a class="dropdown-item" href="#">Magazine classic</a></li>
 							<li> <a class="dropdown-item" href="#">Magazine</a></li>
 							<li> <a class="dropdown-item" href="#">Home cards</a></li>

@@ -1,4 +1,4 @@
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from core.models import Post
 from core.services import take_a_three_best_post, create_new_subscribe, search_post
 from core.forms import SubscriberForm
@@ -38,3 +38,11 @@ class AboutView(TemplateView):
     def get_context_data(self, **kwargs):
         posts = Post.objects.filter(pk=2)
         return {"posts": posts}
+
+
+class PostDetailView(TemplateView):
+    template_name = "core_posts/single_post.html"
+
+    def get_context_data(self, **kwargs):
+        post = Post.objects.get(title=kwargs["post_title"])
+        return {"post": post}

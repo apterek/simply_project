@@ -1,4 +1,24 @@
 {% extends "base.html" %}
+{% load static %}
   {% block content %}
+  {% include "not_homepage_header.html" %}
 
+   <div class="border-bottom border-1 opacity-1"></div>
+      <div class="row" style="margin-top: 50px">
+          <h2>{{ post.title }}</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="post-image-homepage" style="height: 273px">
+                        <img class="img-fluid rounded float-start" src="{{ post.post_image.url }}" alt="{{ post.title }}" style="width: unset" >
+                    </div>
+                </div>
+            <div class="col-md-8 post-box-title" style="height: 90%">
+              {{ post.content }}
+                <br>
+            </div>
+                </div>
+    </div>
+    </div>
+    </div>
+    </div>
   {% endblock %}
