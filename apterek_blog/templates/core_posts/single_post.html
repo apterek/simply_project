@@ -2,23 +2,42 @@
 {% load static %}
   {% block content %}
   {% include "not_homepage_header.html" %}
-
-   <div class="border-bottom border-1 opacity-1"></div>
+<section>
+   <div class="border-bottom border-2 opacity-1"></div>
+<div class="container" style="padding-left: 40px;padding-right: 40px;">
       <div class="row" style="margin-top: 50px">
-          <h2>{{ post.title }}</h2>
+
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-1">
                     <div class="post-image-homepage" style="height: 273px">
-                        <img class="img-fluid rounded float-start" src="{{ post.post_image.url }}" alt="{{ post.title }}" style="width: unset" >
+
                     </div>
                 </div>
             <div class="col-md-8 post-box-title" style="height: 90%">
+                <h2>{{ post.title }}</h2>
+
               {{ post.content }}
                 <br>
             </div>
+                <div class="col-lg-3" style="width: 260px; padding-top: 40px">
+
+                    <h5 class="mb-3">Related post :</h5>
+                    <div class="card" style="width: auto;">
+                      <img src="../../media/back_1_uvOeFM3.jpg" class="card-img-top" alt="...">
+                      <div class="card-body">
+                        <a href="#"><h5 class="card-title">{{ post.title }}</h5></a>
+                      </div>
+                    </div>
+                <div class="mt-4" style="position: static">
+						<a href="#" class="d-block card-img-flash">
+							<img src="../../media/adv.png" alt="" width="100%">
+                            <p></p>
+                            <img src="../../media/adv.png" alt="" width="100%">
+						</a>
+					</div>
+                </div>
                 </div>
     </div>
-    </div>
-    </div>
-    </div>
+</div>
+</section>
   {% endblock %}
