@@ -1,8 +1,7 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-
 from core.models import Post
-from core.services import take_a_three_best_post, create_new_subscribe, search_post
+from core.services import take_a_three_best_post, create_new_subscribe, search_post, create_user
 from core.forms import SubscriberForm, RegistrationForm, SignInForm
 from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib import messages
@@ -56,9 +55,12 @@ class RegistrUser(FormView):
     success_url = reverse_lazy("success_registration")
 
     def form_valid(self, form):
-        if form.data["subscribe_check"]:
-            create_new_subscribe(email=form.data["email"], auth=True)
-        form.create_user()
+        try:
+            if form.data["subscribe_check"]:
+                create_new_subscribe(email=form.data["email"], auth=True)
+        except:
+            pass
+        create_user(form.data["email"], form.data["password"])
         return super().form_valid(form)
 
     def form_invalid(self, form):

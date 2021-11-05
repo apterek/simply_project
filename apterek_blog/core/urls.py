@@ -8,7 +8,6 @@ urlpatterns = [
     path("registering/", RegistrUser.as_view(), name="registering"),
     path("login/", SingInUser.as_view(), name="login"),
     path("success/", success_registration, name="success_registration"),
-
     path("<str:post_title>/", PostDetailView.as_view(), name="post_detail"),  # always last
 ]
 
