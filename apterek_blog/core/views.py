@@ -1,4 +1,6 @@
 from django.shortcuts import redirect, render
+from django.urls import reverse_lazy
+
 from core.models import Post
 from core.services import take_a_three_best_post, create_new_subscribe, search_post
 from core.forms import SubscriberForm, RegistrationForm, SignInForm
@@ -48,24 +50,17 @@ class PostDetailView(TemplateView):
         return {"post": post}
 
 
-"""def register_user(request):
-    if request.method == "POST":
-        form = RegistrationForm(request.POST)
-        if form.is_valid():
-            return redirect("home")
-    else:
-        form = RegistrationForm()
-    return render(request, "profile/sign_up.html", {"form": form})"""
-
-
 class RegistrUser(FormView):
     template_name = "profile/sign_up.html"
     form_class = RegistrationForm
-    success_url = "about"
+    success_url = reverse_lazy("success_registration")
 
     def form_valid(self, form):
-        form.clean()
-        return super(RegistrUser, self).form_valid(form)
+        return super().form_valid(form)
+
+
+def success_registration(request):
+    return render(request, "profile/success_registration.html")
 
 
 class SingInUser(FormView):

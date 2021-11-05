@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load crispy_forms_filters %}
+{% block content %}
+    <div class="container" style="padding-left: 40px;padding-right: 40px;">
+		<div class="row">
+      <div class="col-md-10 col-lg-8 col-xl-6 mx-auto" style="margin-top: 150px;">
+        <div class="bg-primary-soft rounded p-4 p-sm-5">
+            <h1 style="text-align: center">Thanks for registration</h1>
+            <br>
+            <div style="text-align: center">
+            <a href="{% url 'login' %}">Sign up to accout</a> or <a href="{% url 'home' %}">return to home</a>
+                </div>
+        </div>
+      </div>
+    </div>
+	</div>
+
+<style>
+.bg-primary-soft {
+    background-color: rgba(22, 238, 14, 0.23) !important;
+}
+</style>
+{% endblock %}
