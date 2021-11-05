@@ -56,7 +56,13 @@ class RegistrUser(FormView):
     success_url = reverse_lazy("success_registration")
 
     def form_valid(self, form):
+        if form.data["subscribe_check"]:
+            create_new_subscribe(email=form.data["email"], auth=True)
+        form.create_user()
         return super().form_valid(form)
+
+    def form_invalid(self, form):
+        return self.render_to_response(self.get_context_data())
 
 
 def success_registration(request):
