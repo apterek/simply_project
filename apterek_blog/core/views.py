@@ -1,7 +1,7 @@
 from django.shortcuts import redirect, render
 from core.models import Post
 from core.services import take_a_three_best_post, create_new_subscribe, search_post
-from core.forms import SubscriberForm, RegistrationForm
+from core.forms import SubscriberForm, RegistrationForm, SignInForm
 from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib import messages
 
@@ -54,5 +54,13 @@ class RegistrUser(FormView):
     success_url = "about"  # TEST VALUE !!!! CHANGE !!!
 
     def form_valid(self, form):
+        return super().form_valid(form)
 
+
+class SingInUser(FormView):
+    template_name = "profile/sign_in.html"
+    form_class = SignInForm
+    success_url = "about"  # TEST VALUE !!!! CHANGE !!!
+
+    def form_valid(self, form):
         return super().form_valid(form)
