@@ -48,13 +48,24 @@ class PostDetailView(TemplateView):
         return {"post": post}
 
 
+"""def register_user(request):
+    if request.method == "POST":
+        form = RegistrationForm(request.POST)
+        if form.is_valid():
+            return redirect("home")
+    else:
+        form = RegistrationForm()
+    return render(request, "profile/sign_up.html", {"form": form})"""
+
+
 class RegistrUser(FormView):
     template_name = "profile/sign_up.html"
     form_class = RegistrationForm
-    success_url = "about"  # TEST VALUE !!!! CHANGE !!!
+    success_url = "about"
 
     def form_valid(self, form):
-        return super().form_valid(form)
+        form.clean()
+        return super(RegistrUser, self).form_valid(form)
 
 
 class SingInUser(FormView):

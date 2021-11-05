@@ -3,10 +3,6 @@
 {% block content %}
 
 
-
-
-
-
     <div class="container" style="padding-left: 40px;padding-right: 40px;">
 
 		<div class="row">
@@ -14,12 +10,19 @@
         <div class="bg-primary-soft rounded p-4 p-sm-5">
 					<h2>Create your account </h2>
 					<!-- Form START -->
-					<form class="mt-4">
+					<form class="mt-4" method="post">
+                        {% csrf_token %}
 						<!-- Email -->
 						<div class="mb-3">
 							<label class="form-label" for="exampleInputEmail1">Email address</label>
                             {{ form.email }}
+                            {% if form.errors.email %}
+                                <div style="color: #cf0020">
+                                    {{ form.errors.email}}
+                                </div>
+                            {% else %}
 							<small id="emailHelp" class="form-text">We'll never share your email with anyone else.</small>
+                            {% endif %}
 						</div>
 						<!-- Password -->
 						<div class="mb-3">
@@ -27,14 +30,20 @@
 							{{ form.password }}
 						</div>
 						<!-- Password -->
+                        {{ form.non_field.errors }}
 						<div class="mb-3">
 							<label class="form-label" for="exampleInputPassword2">Confirm Password</label>
 							{{ form.confirm_password }}
+                        <div style="color: #cf0020">
+                                {{ form.errors.confirm_password }}
+                        </div>
+
 						</div>
 						<!-- Checkbox -->
 						<div class="mb-3 form-check">
-							<input type="checkbox" class="form-check-input" id="exampleCheck1">
-							<label class="form-check-label" for="exampleCheck1">Yes i'd also like to sign up for additional subscription</label>
+
+                            {{ form.subscribe_check }}
+							<label class="form-check-label" for="{{ form.subscribe_check.id_for_label }}">Yes i'd also like to sign up for additional subscription</label>
 						</div>
 
 						<!-- Button -->
