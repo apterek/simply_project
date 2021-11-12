@@ -38,7 +38,7 @@ class RegistrationForm(forms.Form):
         return cleaned_data
 
 
-class LoginForm(AuthenticationForm, forms.Form):
+class LoginForm(forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs={"class": "form-control"}))
     password = forms.CharField(min_length=8, widget=forms.PasswordInput(
         attrs={"class": "form-control"}), max_length=30)

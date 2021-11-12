@@ -10,10 +10,16 @@ def take_a_three_best_post() -> QuerySet:
     return best_posts
 
 
-def create_user(email: str, password: str) -> None:
+def create_username_from_email(email: str) -> str:
     regex = re.compile(r"(\S+)(@)")
-    name = regex.match(email)
-    User.objects.create_user(username=name.group(1), email=email, password=password)
+    match = regex.match(email)
+    if match:
+        return match.group(1)
+
+
+def create_user(email: str, password: str) -> None:
+    username = create_username_from_email(email)
+    User.objects.create_user(username=username, email=email, password=password)
 
 
 def create_new_subscribe(email: str, auth: bool = False) -> None:

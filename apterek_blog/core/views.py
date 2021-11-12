@@ -1,12 +1,13 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from core.models import Post
-from core.services import take_a_three_best_post, create_new_subscribe, search_post, create_user
+from core.services import take_a_three_best_post, create_new_subscribe, search_post,\
+    create_user, create_username_from_email
 from core.forms import SubscriberForm, RegistrationForm, LoginForm
 from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib import messages
-from django.contrib.auth.views import LoginView
-from django.contrib.auth.models import User
+from django.contrib.auth.views import LoginView  # not delete
+from django.contrib.auth import authenticate, login, logout
 
 
 class HomepageView(CreateView):
@@ -42,14 +43,14 @@ class AboutView(TemplateView):
         posts = Post.objects.filter(pk=2)
         return {"posts": posts}
 
-"""
+
 class PostDetailView(TemplateView):
     template_name = "core_posts/single_post.html"
 
     def get_context_data(self, **kwargs):
         post = Post.objects.get(title=kwargs["post_title"])
         return {"post": post}
-"""
+
 
 class RegistrUser(FormView):
     template_name = "profile/sign_up.html"
@@ -73,10 +74,27 @@ def success_registration(request):
     return render(request, "profile/success_registration.html")
 
 
+def login_user(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            valid_form = form.cleaned_data
+            user = authenticate(request,
+                                username=create_username_from_email(valid_form["email"]),
+                                password=valid_form["password"])
+            if user is not None:
+                login(request, user)
+                return redirect("home")
+            else:
+                messages.info(request, "Something going wrong !!!")
+    else:
+        form = LoginForm()
+    return render(request, "profile/sign_in.html", {"form": form})
+
+
+""" # not delete, need remake registration form, for register with username
 class LoginUser(LoginView):
     template_name = "profile/sign_in.html"
     form_class = LoginForm
-    success_url = ""
-
-    def get_success_url(self):
-        return self.success_url
+    redirect_field_name = "home"
+"""
