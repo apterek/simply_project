@@ -2,9 +2,11 @@ from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
 from core.models import Post
 from core.services import take_a_three_best_post, create_new_subscribe, search_post, create_user
-from core.forms import SubscriberForm, RegistrationForm, SignInForm
+from core.forms import SubscriberForm, RegistrationForm, LoginForm
 from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib import messages
+from django.contrib.auth.views import LoginView
+from django.contrib.auth.models import User
 
 
 class HomepageView(CreateView):
@@ -40,14 +42,14 @@ class AboutView(TemplateView):
         posts = Post.objects.filter(pk=2)
         return {"posts": posts}
 
-
+"""
 class PostDetailView(TemplateView):
     template_name = "core_posts/single_post.html"
 
     def get_context_data(self, **kwargs):
         post = Post.objects.get(title=kwargs["post_title"])
         return {"post": post}
-
+"""
 
 class RegistrUser(FormView):
     template_name = "profile/sign_up.html"
@@ -71,10 +73,10 @@ def success_registration(request):
     return render(request, "profile/success_registration.html")
 
 
-class SingInUser(FormView):
+class LoginUser(LoginView):
     template_name = "profile/sign_in.html"
-    form_class = SignInForm
-    success_url = "about"  # TEST VALUE !!!! CHANGE !!!
+    form_class = LoginForm
+    success_url = ""
 
-    def form_valid(self, form):
-        return super().form_valid(form)
+    def get_success_url(self):
+        return self.success_url

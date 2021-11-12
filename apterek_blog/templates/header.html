@@ -35,9 +35,15 @@
 						<li class="nav-item">
 							<a class="nav-link px-2 fs-5" href="#">4<i class="fab fa-youtube-square"></i></a>
 						</li>
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            {{ user.username }}
+                        </li>
+                        {% else %}
 						<li class="nav-item">
                             <a class="nav-link ps-0" href="{% url "registering" %}">Login / Join</a>
 						</li>
+                        {% endif %}
 					</ul>
 				</div>
 			</div>

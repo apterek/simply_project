@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
+from django.contrib.auth.forms import AuthenticationForm
 
 
 class SubscriberForm(forms.Form):
@@ -37,7 +38,7 @@ class RegistrationForm(forms.Form):
         return cleaned_data
 
 
-class SignInForm(forms.Form):
+class LoginForm(AuthenticationForm, forms.Form):
     email = forms.EmailField(widget=forms.EmailInput(attrs={"class": "form-control"}))
     password = forms.CharField(min_length=8, widget=forms.PasswordInput(
         attrs={"class": "form-control"}), max_length=30)
