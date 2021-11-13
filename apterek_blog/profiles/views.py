@@ -8,5 +8,5 @@ class ProfileView(TemplateView):
 
     def get_context_data(self, **kwargs):
         if self.request.user.is_authenticated:
-            profile = ProfileInformation.objects.filter(user_id=self.request.user.id)
+            profile = ProfileInformation.objects.all().filter(user_id=self.request.user.id).first()
             return {"profile": profile}

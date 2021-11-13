@@ -5,17 +5,11 @@
    <div class="border-bottom border-2 opacity-1"></div>
 
     <div class="container" style="padding-left: 40px;padding-right: 40px;">
-    asdasdasd
-        {{ profile.name }}
-        <br>
-        {{ profile.user }}
-        <br>
-        {{ profile.gender }}
-        <br>
-        {{ profile.bday }}
-        <br>
-        {{ profile.about }}
-
-
+        <form method="get" class="">
+            {{ form.name }}
+            {{ form.bday }}
+            {{ form.gender }}
+            {{ form.about }}
+        </form>
     </div>
 {% endblock %}

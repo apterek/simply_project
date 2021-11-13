@@ -1,8 +1,9 @@
 from django.urls import path
 from django.conf import settings
+from profiles.views import ProfileView
 
 urlpatterns = [
-
+    path("pr/", ProfileView.as_view(), name="profile_url")
 ]
 
 if settings.DEBUG:

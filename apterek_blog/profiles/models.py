@@ -3,7 +3,7 @@ from django.db import models
 from core.models import Post
 
 
-GENDER_SETTING = (("FEMALE", "Female"), ("MALE", "Male"), ("RATHER_NOT_SAY", "Rather not say"))
+GENDER_SETTING = (("Female", "Female"), ("Male", "Male"), ("Rather not say", "Rather not say"))
 
 
 class ProfileInformation(models.Model):
@@ -13,7 +13,6 @@ class ProfileInformation(models.Model):
     name = models.CharField(max_length=50)
     bday = models.DateField(blank=True, null=True)
     gender = models.CharField(max_length=20, choices=GENDER_SETTING, blank=True, null=True)
-    post = models.ForeignKey(Post, related_name="user_posts", on_delete=models.CASCADE, blank=True, null=True)
     about = models.TextField(max_length=2000, blank=True, null=True)
 
     class Meta:
