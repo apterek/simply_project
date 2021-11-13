@@ -1,3 +1,24 @@
+from django.conf import settings
 from django.db import models
+from core.models import Post
 
-# Create your models here.
+
+GENDER_SETTING = (("FEMALE", "Female"), ("MALE", "Male"), ("RATHER_NOT_SAY", "Rather not say"))
+
+
+class ProfileInformation(models.Model):
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, related_name="user_info", on_delete=models.CASCADE, blank=True, null=True
+    )
+    name = models.CharField(max_length=50)
+    bday = models.DateField(blank=True, null=True)
+    gender = models.CharField(max_length=20, choices=GENDER_SETTING, blank=True, null=True)
+    post = models.ForeignKey(Post, related_name="user_posts", on_delete=models.CASCADE, blank=True, null=True)
+    about = models.TextField(max_length=2000, blank=True, null=True)
+
+    class Meta:
+        verbose_name = "Profile info"
+        verbose_name_plural = "Profiles info"
+
+    def __str__(self):
+        return f"{self.name}"

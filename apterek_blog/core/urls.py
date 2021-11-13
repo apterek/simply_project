@@ -10,7 +10,7 @@ urlpatterns = [
     path("login/", login_user, name="login"),
     path("logout/", logout_user, name="logout"),
     path("success/", success_registration, name="success_registration"),
-    path("<str:post_title>/", PostDetailView.as_view(), name="post_detail"),  # always last
+    path("<str:post_title>/", PostDetailView.as_view(), name="post_detail"),
 ]
 
 if settings.DEBUG:
