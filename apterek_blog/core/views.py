@@ -8,8 +8,6 @@ from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib import messages
 from django.contrib.auth.views import LoginView  # not delete
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.decorators import login_required
-
 
 
 class HomepageView(CreateView):
@@ -97,6 +95,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     return redirect("home")
+
 
 """ # not delete, need remake registration form, for register with username
 class LoginUser(LoginView):

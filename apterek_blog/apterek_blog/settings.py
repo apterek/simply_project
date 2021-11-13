@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'apterek_blog',
     'crispy_forms',
     'core',
+    'profiles',
 ]
 
 MIDDLEWARE = [

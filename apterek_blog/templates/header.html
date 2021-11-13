@@ -23,21 +23,26 @@
 				<div class="d-flex align-items-center">
 
 					<ul class="nav">
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="#">1<i class="fab fa-facebook-square"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="#">2<i class="fab fa-twitter-square"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="#">3<i class="fab fa-linkedin"></i></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link px-2 fs-5" href="#">4<i class="fab fa-youtube-square"></i></a>
-						</li>
+
                         {% if user.is_authenticated %}
                         <li class="nav-item">
-                            {{ user.username }}  <a href="{% url "logout" %}">Logout</a>
+                            <div class="dropdown">
+                              <a href="#" class="d-flex align-items-center justify-content-center
+                               link-dark text-decoration-none dropdown-toggle" id="dropdownUser3"
+                                 data-bs-toggle="dropdown" aria-expanded="false" style="padding-top: 7px;">
+                                    <strong>{{ user.username }}</strong>
+                                  <img src="https://github.com/mdo.png" alt="mdo" width="24" height="24"
+                                       class="rounded-circle" style="margin-left: 5px;">
+                              </a>
+                              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                                <li><a class="dropdown-item" href="#">Add post</a></li>
+                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="#">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url "logout" %}">Logout</a></li>
+                              </ul>
+                            </div>
+
                         </li>
                         {% else %}
 						<li class="nav-item">
