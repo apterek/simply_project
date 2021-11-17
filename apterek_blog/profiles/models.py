@@ -15,6 +15,7 @@ class ProfileInformation(models.Model):
     gender = models.CharField(max_length=20, choices=GENDER_SETTING, blank=True, null=True)
     about = models.TextField(max_length=2000, blank=True, null=True)
     profile_photo = models.ImageField(upload_to='profile_photo/%Y/%m/%d/', blank=True, null=True)
+    status = models.CharField(max_length=40, null=True, blank=True, default="My status")
 
     class Meta:
         verbose_name = "Profile info"

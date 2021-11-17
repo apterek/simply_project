@@ -16,8 +16,14 @@
 
             <div class="col-lg-9" style="background: rgba(17, 89, 234, 0.23); border-radius: 0.5rem">
                 <div class="row">
-                    <div class="col-sm-4"> <h1 style="margin-top: 20px">{{ profile.name }}</h1></div>
+                    <div class="col-sm-2"> <h1 style="margin-top: 20px">{{ profile.name }}</h1></div>
+                    <div class="col-sm-4" style="margin-right: 280px;"><h5 style="margin-top: 20px;background: rgba(64,191,245,0.62);
+                     border-radius: 0.5rem"><div style="margin-left: 5px">{{ profile.status }}</div></h5></div>
+                    <div class="col-sm-2"><a href="{% url 'update_profile' %}"><button type="button" class="btn btn-warning"
+                    style="margin-top: 20px">Edit profile</button></a></div>
                 </div>
+
+
 
                 <div class="row">
                     <div class="col-sm-2"> <h5 style="margin-top: 5px">Age:</h5></div>
@@ -41,7 +47,15 @@
         <div class="row">
             <div class="col-lg-3"></div>
             <div class="col-lg-9" style="background: rgba(17, 89, 234, 0.23); border-radius: 0.5rem; margin-top: 10px">
-                asdf
+                <p><h2>List of user posts:</h2></p>
+                {% for post in posts %}
+                    <div>
+                    <h5><a href="{% url 'post_detail' post.title  %}"> {{ post.title }} </a></h5>
+                    {{ post.content|truncatewords:40 }}
+                    </div>
+                {% endfor %}
+            <br>
+
             </div>
         </div>
 

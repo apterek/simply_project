@@ -1,9 +1,10 @@
 from django.urls import path
 from django.conf import settings
-from profiles.views import ProfileView
+from profiles.views import ProfileView, UpdateProfile
 
 urlpatterns = [
-    path("pr/", ProfileView.as_view(), name="profile_url")
+    path("profile/", ProfileView.as_view(), name="profile_url"),
+    path("update_profile/", UpdateProfile.as_view(), name="update_profile")
 ]
 
 if settings.DEBUG:
