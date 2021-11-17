@@ -4,18 +4,41 @@
   {% include "header.html" %}
    <div class="border-bottom border-2 opacity-1"></div>
 
-    <div class="container" style="padding-left: 40px;padding-right: 40px;">
-    asdasdasd
-        {{ profile.name }}
-        <br>
-        {{ profile.user }}
-        <br>
-        {{ profile.gender }}
-        <br>
-        {{ profile.bday }}
-        <br>
-        {{ profile.about }}
+    <div class="container" style="padding-left: 100px;padding-right: 100px">
+    <div class="container custom-container" style="margin-top: 40px;">
+            <h1>Profile info</h1>
+        <div class="row">
 
+            <div class="col-lg-3" >
+                <div class="custom_img" >
+                <img style="border-radius: 0.5rem;" src="{{ profile.profile_photo.url }}" width="70%">
+                </div>
+            </div>
 
+            <div class="col-lg-9" style="background: rgba(17, 89, 234, 0.23); border-radius: 0.25rem">
+                <div class="row">
+                    <div class="col-sm-4"> <h1 style="margin-top: 20px">{{ profile.name }}</h1></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4"> <h5 style="margin-top: 5px">Age:</h5></div>
+                    <div class="col-sm-4"><h5 style="margin-top: 5px"> {{ profile.bday }}</h5></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4"> <h5 style="margin-top: 5px">Gender:</h5></div>
+                    <div class="col-sm-4"><h5 style="margin-top: 5px"> {{ profile.gender }}</h5></div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-4"> <h5 style="margin-top: 5px">About:</h5></div>
+                    <div class="col-sm-7 " style="margin-top: 5px;"> {{ profile.about }}</div>
+                </div>
+
+            </div>
+
+        </div>
     </div>
+      </div>
 {% endblock %}
+
