@@ -5,6 +5,7 @@ from core.views import HomepageView, AboutView, RegistrUser, success_registratio
 
 urlpatterns = [
     path("", HomepageView.as_view(), name="home"),
+    path("posts_<str:category>/", HomepageView.as_view(), name="home_with_category"),
     path("about/", AboutView.as_view(), name="about"),
     path("registering/", RegistrUser.as_view(), name="registering"),
     path("login/", login_user, name="login"),

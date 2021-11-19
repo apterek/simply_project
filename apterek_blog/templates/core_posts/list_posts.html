@@ -4,7 +4,7 @@
     <div class="container item-list">
     <div class="content">
 
-        <a href="#"> <h2>{{ p.title }}</h2></a>
+        <a href="{% url 'post_detail' p.title %}"> <h2>{{ p.title }}</h2></a>
     <div class="row">
         <div class="col-md-4">
             <div class="post-image-homepage" style="height: 285px">

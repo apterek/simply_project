@@ -1,7 +1,6 @@
 from django.shortcuts import redirect
-from django.views.generic import TemplateView, CreateView, UpdateView
+from django.views.generic import TemplateView, CreateView
 from profiles.forms import EditProfileInfoForm
-from profiles.models import ProfileInformation
 from core.models import Post
 from profiles.services import user_information, update_user_information
 

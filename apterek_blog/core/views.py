@@ -14,9 +14,16 @@ class HomepageView(CreateView):
     template_name = "homepage.html"
 
     def get_context_data(self, **kwargs):
+        category = ""
+        try:
+            category = self.kwargs.get("category")
+        except:
+            pass
         search_query = self.request.GET.get("search_field", None)  # If the search form is submitted
         if search_query:
             posts = search_post(search_query)
+        elif category:
+            posts = Post.objects.filter(category__category=category)
         else:
             posts = Post.objects.all()
         best_post1, best_post2, best_post3 = take_a_three_best_post()
@@ -48,8 +55,10 @@ class PostDetailView(TemplateView):
     template_name = "core_posts/single_post.html"
 
     def get_context_data(self, **kwargs):
+        print(kwargs["post_title"])
         post = Post.objects.get(title=kwargs["post_title"])
         return {"post": post}
+
 
 
 class RegistrUser(FormView):

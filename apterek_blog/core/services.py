@@ -31,3 +31,4 @@ def search_post(searching_string: str) -> QuerySet:
     if not find_posts:
         find_posts = Post.objects.order_by("created_at")[0:3]
     return find_posts
+
