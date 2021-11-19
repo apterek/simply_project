@@ -28,13 +28,8 @@ class UpdateProfile(CreateView):
 
     def post(self, request, *args, **kwargs):
         update_form = EditProfileInfoForm(request.POST, request.FILES)
-
         if update_form.is_valid():
-            print(update_form.cleaned_data["profile_photo"])
             update_user_information(update_form, self.request.user.id)
-            #ProfileInformation.objects.all().filter(user_id=self.request.user.id).update(**update_form.cleaned_data)
-            #ProfileInformation.objects.update_or_create(**update_form.cleaned_data)
-            #update_user_information(**update_form.cleaned_data)
             return redirect("profile_url")
 
 
