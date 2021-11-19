@@ -31,12 +31,11 @@
                                link-dark text-decoration-none dropdown-toggle" id="dropdownUser3"
                                  data-bs-toggle="dropdown" aria-expanded="false" style="padding-top: 7px;">
                                     <strong>{{ user.username }}</strong>
-                                  <!--<img src="{{ profile.profile_photo.url }}" alt="" width="24" height="24"
-                                       class="rounded-circle" style="margin-left: 5px;">-->
+
                               </a>
                               <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
                                 <li><a class="dropdown-item" href="#">Add post</a></li>
-                                <li><a class="dropdown-item" href="#">Settings</a></li>
+                                <li><a class="dropdown-item" href="{% url "update_profile" %}">Settings</a></li>
                                 <li><a class="dropdown-item" href="{% url "profile_url" %}">Profile</a></li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li><a class="dropdown-item" href="{% url "logout" %}">Logout</a></li>
