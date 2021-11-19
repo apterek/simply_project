@@ -12,7 +12,7 @@
 						<a class="nav-link ps-0" href="{% url 'home' %}">Main</a>
 					</li>
                     <li class="nav-item">
-						<a class="nav-link ps-0" href="#">About</a>
+						<a class="nav-link ps-0" href="{% url 'about' %}">About</a>
 					</li>
                     {% if user.username == "hr" %}
 					<li class="nav-item">
@@ -99,39 +99,47 @@
 								<div class="row g-4 p-3 flex-fill">
 									<!-- Card item START -->
 									<div class="col-sm-6 col-lg-3">
+                                        <a href="#" class="btn-link text-reset fw-bold">
 										<div class="card bg-transparent">
 											<img class=" rounded" src="/media/win-10.png" alt="Card image">
 											<div class="card-body">
-												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">WIN-10/32-bit</a></h6>
+												<h6 class="card-title mb-0">WIN-10/32-bit</h6>
 											</div>
 										</div>
+                                            </a>
 									</div>
 									<!-- Card item START -->
                                     <div class="col-sm-6 col-lg-3">
+                                        <a href="#" class="btn-link text-reset fw-bold">
 										<div class="card bg-transparent">
 											<img class=" rounded" src="/media/win-10.png" alt="Card image">
 											<div class="card-body">
-												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">WIN-10/64-bit</a></h6>
+												<h6 class="card-title mb-0">WIN-10/64-bit</h6>
 											</div>
 										</div>
+                                            </a>
 									</div>
                                     <!-- Card item START -->
                                     <div class="col-sm-6 col-lg-3">
+                                        <a href="#" class="btn-link text-reset fw-bold">
 										<div class="card bg-transparent">
 											<img class=" rounded" src="/media/linux.png" alt="Card image">
 											<div class="card-body">
-												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">Linux-Ubuntu-20.04/64-bit</a></h6>
+												<h6 class="card-title mb-0">Linux-Ubuntu-20.04/64-bit</h6>
 											</div>
 										</div>
+                                            </a>
 									</div>
                                     <!-- Card item START -->
                                     <div class="col-sm-6 col-lg-3">
+                                        <a href="#" class="btn-link text-reset fw-bold">
 										<div class="card bg-transparent">
 											<img class=" rounded" src="/media/linux.png" alt="Card image">
 											<div class="card-body">
-												<h6 class="card-title mb-0"><a href="#" class="btn-link text-reset fw-bold">Centos-8/64-bit</a></h6>
+												<h6 class="card-title mb-0">Centos-8/64-bit</h6>
 											</div>
 										</div>
+                                            </a>
 									</div>
 								</div>
 							</div>
@@ -171,17 +179,13 @@
                             <input type="hidden" name="action" value="add">
                             All posts
                         </a></li>
-                        <li class="nav-item">	<a class="nav-link" href="#">Network</a></li>
-                        <li class="nav-item">	<a class="nav-link" href="#">System</a></li>
-                        <li class="nav-item">	<a class="nav-link" href="#">Virtualization</a></li>
-                        <li class="nav-item">	<a class="nav-link" href="#">Services</a></li>
-                        <li class="nav-item">	<a class="nav-link" href="#">Softs</a></li>
+                        <li class="nav-item">	<a class="nav-link" href="{% url 'home_with_category' "network" %}">Network</a></li>
+                        <li class="nav-item">	<a class="nav-link" href="{% url 'home_with_category' "system" %}">System</a></li>
+                        <li class="nav-item">	<a class="nav-link" href="{% url 'home_with_category' "virtualization" %}">Virtualization</a></li>
+                        <li class="nav-item">   <a class="nav-link" href="{% url 'home_with_category' "s&s" %}">Service and Soft</a></li>
                     </ul>
                 {% endif %}
 			</div>
-
-
-
 
 			<!-- Nav right sight -->
 			<div class="nav flex-nowrap align-items-center">
@@ -198,7 +202,6 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                           <div class="modal-body">
-
                             <form action="{% url 'home' %}" method="post">
                                 {% csrf_token %}
                                 {{ form.non_field.errors }}
@@ -214,7 +217,7 @@
                             style="background-color: #5b5d5b;">Close</button>
                               <input type="hidden" name="action" value="add_subscriber">
                             <button type="submit" class="btn btn-success"
-                             style="background-color: #217c4a;">Send message</button>
+                             style="background-color: #217c4a;">Subscribe</button>
                           </div>
                             </form>
 
@@ -224,7 +227,6 @@
                       </div>
                     </div>
 				</div>
-
 				<!-- Nav Search -->
 				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search">
 					<a class="nav-link dropdown-toggle" role="button" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">

@@ -44,7 +44,7 @@ class HomepageView(CreateView):
 
 
 class AboutView(TemplateView):
-    template_name = "about/about.html"
+    template_name = "about/about_site.html"
 
     def get_context_data(self, **kwargs):
         posts = Post.objects.filter(pk=2)
