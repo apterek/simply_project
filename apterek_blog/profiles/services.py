@@ -1,6 +1,5 @@
 from profiles.models import ProfileInformation
 from django.db.models import QuerySet
-import os
 
 
 def user_information(user_id: int) -> QuerySet:

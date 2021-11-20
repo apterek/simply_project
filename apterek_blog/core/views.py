@@ -55,10 +55,11 @@ class PostDetailView(TemplateView):
     template_name = "core_posts/single_post.html"
 
     def get_context_data(self, **kwargs):
-        print(kwargs["post_title"])
-        post = Post.objects.get(title=kwargs["post_title"])
-        return {"post": post}
-
+        try:
+            post = Post.objects.get(title=kwargs["post_title"])
+            return {"post": post}
+        except:
+            pass
 
 
 class RegistrUser(FormView):
