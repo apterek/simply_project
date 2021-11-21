@@ -23,7 +23,7 @@ class UserFactory(DjangoModelFactory):
 
     username = 'apterek-test'
     email = 'apterek-test@mail.ru'
-    password = '12345678'
+    password = '123456789'
 
 
 class PostFactory(DjangoModelFactory):
