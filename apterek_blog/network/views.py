@@ -1,9 +1,8 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
 from network.services import create_topology_pict
-from django.views.generic import CreateView, TemplateView, FormView
+from django.views.generic import TemplateView, FormView
 from network.forms import FileForm
-from network.models import TopologyImages, ImageModel
+from network.models import TopologyImages
 
 
 class CreateTopologyView(FormView):

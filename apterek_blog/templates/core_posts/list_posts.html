@@ -1,30 +1,27 @@
 <div class="container" style="padding-left: 40px;padding-right: 40px;">
 <div class="row">
 <div class="col-lg-9">
-{% for p in post %}
-
+{% for p in items %}
     <div class="container item-list">
     <div class="content">
-
         <a href="{% url 'post_detail' p.title %}"> <h2>{{ p.title }}</h2></a>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="post-image-homepage" style="height: 285px">
-                <img class="img-fluid rounded float-start" src="{{ p.post_image.url }}" alt="{{ p.title }}" style="width: unset" >
-                </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="post-image-homepage" style="height: 285px">
+                    <img class="img-fluid rounded float-start" src="{{ p.post_image.url }}" alt="{{ p.title }}" style="width: unset" >
+                    </div>
+            </div>
+            <div class="col-md-8 post-box-title" style="height: 90%">
+                  {{ p.content|truncatewords:100 }}
+                <br>
+                <a href="{% url 'post_detail' p.title %}"><button type="button" class="custom-btn btn-1"> Read more</button></a>
+            </div>
         </div>
-        <div class="col-md-8 post-box-title" style="height: 90%">
-              {{ p.content|truncatewords:100 }}
-            <br>
-            <a href="{% url 'post_detail' p.title %}"><button type="button" class="custom-btn btn-1"> Read more</button></a>
-        </div>
     </div>
     </div>
-    </div>
-
           <br>
-
       {% endfor %}
+        {% include "core_posts/paginators.html" %}
 </div>
 <div class="col-lg-3">
     <h5>Advertisement:</h5>

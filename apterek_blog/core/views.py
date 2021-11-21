@@ -8,6 +8,7 @@ from django.views.generic import CreateView, TemplateView, FormView
 from django.contrib import messages
 from django.contrib.auth.views import LoginView  # not delete
 from django.contrib.auth import authenticate, login, logout
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 class HomepageView(CreateView):
@@ -28,8 +29,25 @@ class HomepageView(CreateView):
             posts = Post.objects.all()
         best_post1, best_post2, best_post3 = take_a_three_best_post()
         form = SubscriberForm()
+        paginator = Paginator(posts, 5)
+        page = self.request.GET.get("page")
+
+        try:
+            items = paginator.page(page)
+        except PageNotAnInteger:
+            items = paginator.page(1)
+        except EmptyPage:
+            items = paginator.page(paginator.num_pages)
+
+        index = items.number - 1
+        max_index = len(paginator.page_range)
+        start_index = index - 5 if index >= 5 else 0
+        end_index = index + 5 if index <= max_index - 5 else max_index
+        page_range = paginator.page_range[start_index:end_index]
+
         return {"post": posts, "best_post1": best_post1,
-                "best_post2": best_post2, "best_post3": best_post3, "form": form}
+                "best_post2": best_post2, "best_post3": best_post3, "form": form,
+                "page_range": page_range, "items": items}
 
     def post(self, request, *args, **kwargs):
         subscribe_form = SubscriberForm(self.request.POST)
