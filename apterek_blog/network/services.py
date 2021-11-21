@@ -15,11 +15,11 @@ def create_topology_pict(filenames: list, user) -> None:
     add_topology_to_database(path_topology_save, user)
 
 
-def add_topology_to_database(path: str, user: int) -> None:
+def add_topology_to_database(path: str, user) -> None:
     f = open(f"{path}/topology.svg")
     image = ImageModel()
     image.topology_image.save("topology.svg", File(f))
     last_image = ImageModel.objects.all().last()
     print(last_image, type(last_image))
     TopologyImages.objects.create(username=user, image=last_image)
-    shutil.rmtree(path)
+    shutil.rmtree(f"{BASE_DIR}/media/network_topology/{user.id}")
