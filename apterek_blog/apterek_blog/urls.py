@@ -6,7 +6,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include("core.urls")),
     path('api-auth/', include("rest_framework.urls")),
-    path('profile/', include("profiles.urls"))
+    path('profile/', include("profiles.urls")),
+    path('network_utils/', include("network.urls")),
 ]
 
 if settings.DEBUG:

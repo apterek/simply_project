@@ -13,9 +13,8 @@ def parse_cdp_neighbors(command_output: str) -> dict:
 
 def create_network_map(filenames: list) -> dict:
     dict_back = {}
-    for line in filenames:
-        with open(line) as f:
-            dict_parse = parse_cdp_neighbors(f.read())
+    for file in filenames:
+        dict_parse = parse_cdp_neighbors(file.read().decode("utf-8"))
         dict_back.update(dict_parse)
     return dict_back
 

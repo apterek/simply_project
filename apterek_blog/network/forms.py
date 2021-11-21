@@ -5,5 +5,4 @@ from network.models import TopologyImages
 
 
 class FileForm(forms.Form):
-    filename = forms.FileField(widget=forms.ClearableFileInput(attrs={"multiple": True}))
-
+    filename = forms.FileField(widget=forms.ClearableFileInput(attrs={"multiple": True}), required=False)
