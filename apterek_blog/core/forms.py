@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import AuthenticationForm
+from core.services import create_username_from_email
 
 
 class SubscriberForm(forms.Form):
@@ -25,6 +26,8 @@ class RegistrationForm(forms.Form):
         cleaned_data = super().clean()
         email = cleaned_data.get("email")
         if User.objects.filter(email=email).exists():
+            raise ValidationError("This email already is used")
+        if User.objects.filter(username=create_username_from_email(email)).exists():
             raise ValidationError("This email already is used")
         return cleaned_data
 
