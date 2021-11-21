@@ -9,10 +9,10 @@ class Post(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL,
                                on_delete=models.CASCADE,
                                related_name="profiles")
-    post_image = models.ImageField(upload_to='post_images/%Y/%m/%d/')
+    post_image = models.ImageField(upload_to='post_images/%Y/%m/%d/', blank=True, null=True)
     number_of_views = models.PositiveIntegerField(default=0)
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    updated_at = models.DateTimeField(auto_now=True, blank=True, null=True)
     is_published = models.BooleanField(default=False)
     likes = models.PositiveIntegerField(default=0)
 

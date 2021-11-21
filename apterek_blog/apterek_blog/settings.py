@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-&9w#3fxgjgxir_$go@z5ly9$jupaclzkp73v++hqxd2xveg)46
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -141,3 +141,12 @@ REST_FRAMEWORK = {
 }
 
 LOGOUT_URL = reverse_lazy('logout')
+
+RQ_QUEUES = {
+   "default": {
+       "HOST": os.getenv("REDIS_HOST", "localhost"),
+       "PORT": 6379,
+       "DB": 0,
+       "DEFAULT_TIMEOUT": 360,
+   },
+}

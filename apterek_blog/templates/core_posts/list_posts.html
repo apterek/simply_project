@@ -8,7 +8,9 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="post-image-homepage" style="height: 285px">
+                    {% if p.post_image %}
                     <img class="img-fluid rounded float-start" src="{{ p.post_image.url }}" alt="{{ p.title }}" style="width: unset" >
+                    {% endif %}
                     </div>
             </div>
             <div class="col-md-8 post-box-title" style="height: 90%">
