@@ -12,7 +12,7 @@ services:
     env_file:
       - ./.env_app
     build: "."
-    command: gunicorn blog.wsgi:application --bind 0.0.0.0:8000
+    command: gunicorn apterek_blog.wsgi:application --bind 0.0.0.0:8000
     depends_on:
       - postgres
       - redis
