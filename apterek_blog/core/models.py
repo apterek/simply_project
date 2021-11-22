@@ -87,6 +87,6 @@ class Subscribers(models.Model):
 
 
 class ExchangeRate(models.Model):
-    exchange_rate_usd = models.PositiveIntegerField(default=0)
-    exchange_rate_eur = models.PositiveIntegerField(default=0)
+    exchange_rate_usd = models.FloatField(default=0, max_length=4)
+    exchange_rate_eur = models.FloatField(default=0, max_length=4)
     created_at = models.DateTimeField(auto_now_add=True, db_index=True)

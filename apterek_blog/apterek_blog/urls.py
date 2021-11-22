@@ -4,12 +4,13 @@ from django.urls import path, include
 
 urlpatterns = [
     path("api/", include("api.urls", namespace="api",)),
+    path("django-rq/", include("django_rq.urls")),
     path('admin/', admin.site.urls),
-    path('', include("core.urls")),
     path('api-auth/', include("rest_framework.urls")),
     path('profile/', include("profiles.urls")),
     path('network_utils/', include("network.urls")),
-    path("django-rq/", include("django_rq.urls")),
+    path('', include("core.urls")),
+
 ]
 
 if settings.DEBUG:

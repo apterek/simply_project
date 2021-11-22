@@ -6,4 +6,4 @@ class Command(BaseCommand):
     help = "Update exchange rate in product model"
 
     def handle(self, *args, **options):
-        run_update_exchange_rate.delay()
+        run_update_exchange_rate().delay()
