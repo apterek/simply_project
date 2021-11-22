@@ -7,6 +7,7 @@ from network.models import TopologyImages, ImageModel
 import shutil
 
 
+# create svg file with devices topology, and with function "add_topology_to_database" and add it to database
 def create_topology_pict(filenames: list, user) -> None:
     date = datetime.now()
     identification_mark = f"{date.year}-{date.month}-{date.day}-{date.hour}-{date.minute}"
@@ -15,11 +16,11 @@ def create_topology_pict(filenames: list, user) -> None:
     add_topology_to_database(path_topology_save, user)
 
 
+# save a file with topology in a database, and remove from webserver
 def add_topology_to_database(path: str, user) -> None:
     f = open(f"{path}/topology.svg")
     image = ImageModel()
     image.topology_image.save("topology.svg", File(f))
     last_image = ImageModel.objects.all().last()
-    print(last_image, type(last_image))
     TopologyImages.objects.create(username=user, image=last_image)
     shutil.rmtree(f"{BASE_DIR}/media/network_topology/{user.id}")

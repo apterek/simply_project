@@ -1,5 +1,7 @@
 import sys
 
+# here you can configure the design of the svg file display for the graphviz module
+
 try:
     import graphviz as gv
 except ImportError:

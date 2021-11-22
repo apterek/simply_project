@@ -5,6 +5,7 @@ from network.forms import FileForm
 from network.models import TopologyImages
 
 
+# page for uploading files
 class CreateTopologyView(FormView):
     template_name = "network/network_create_topology.html"
     form_class = FileForm
@@ -21,6 +22,7 @@ class CreateTopologyView(FormView):
             return self.form_invalid(form)
 
 
+# displays the resulting network topology
 class TopologyView(TemplateView):
     template_name = "network/network_topology.html"
 

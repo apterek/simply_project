@@ -11,6 +11,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
+# main page
 class HomepageView(CreateView):
     template_name = "homepage.html"
 
@@ -55,6 +56,7 @@ class HomepageView(CreateView):
                 "page_range": page_range, "items": items,
                 "exchange_rate": exchange_rate}
 
+    # processes a post request from the main page(adds an email for mailing to a database)
     def post(self, request, *args, **kwargs):
         subscribe_form = SubscriberForm(self.request.POST)
         if subscribe_form.is_valid() and self.request.user.is_authenticated:
@@ -67,6 +69,7 @@ class HomepageView(CreateView):
             return redirect("home")
 
 
+# page about site
 class AboutView(TemplateView):
     template_name = "about/about_site.html"
 
@@ -75,6 +78,7 @@ class AboutView(TemplateView):
         return {"posts": posts}
 
 
+# viewing a single post
 class PostDetailView(TemplateView):
     template_name = "core_posts/single_post.html"
 
@@ -86,6 +90,7 @@ class PostDetailView(TemplateView):
             pass
 
 
+# registration view, with validations in the form
 class RegistrUser(FormView):
     template_name = "profile/sign_up.html"
     form_class = RegistrationForm
@@ -104,10 +109,12 @@ class RegistrUser(FormView):
         return self.render_to_response(self.get_context_data())
 
 
+# page after success registration
 def success_registration(request):
     return render(request, "profile/success_registration.html")
 
 
+# login user page
 def login_user(request):
     if request.method == "POST":
         form = LoginForm(request.POST)
@@ -126,6 +133,7 @@ def login_user(request):
     return render(request, "profile/sign_in.html", {"form": form})
 
 
+# log out from under your account
 def logout_user(request):
     logout(request)
     return redirect("home")

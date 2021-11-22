@@ -5,6 +5,7 @@ from profiles.models import ProfileInformation, GENDER_SETTING
 DATE_INPUT_FORMAT = ['%d-%m-%Y']
 
 
+# information about profile
 class EditProfileInfoForm(forms.Form):
     name = forms.CharField(max_length=50, required=False, widget=forms.TextInput(
         attrs={"placeholder": "Update your name", "class": "form-control"}))

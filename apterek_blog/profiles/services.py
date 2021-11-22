@@ -2,10 +2,12 @@ from profiles.models import ProfileInformation
 from django.db.models import QuerySet
 
 
+# searches information about user
 def user_information(user_id: int) -> QuerySet:
     return ProfileInformation.objects.all().filter(user_id=user_id).first()
 
 
+# checking fields that have been changed
 def update_user_information(update_form, user_id: int) -> None:
     if update_form.cleaned_data["name"]:
         ProfileInformation.objects.all().filter(user_id=user_id).\

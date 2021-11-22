@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 CURRCOV_API_KEY = "37f1f0ad28d970fb8fd3"
 
 
+# the task for update exchange rate
 @job
 def run_update_exchange_rate():
     url_usd = f"https://free.currconv.com/api/v7/convert?q=USD_BYN&compact=ultra&apiKey={CURRCOV_API_KEY}"

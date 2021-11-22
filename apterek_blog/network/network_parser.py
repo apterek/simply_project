@@ -1,3 +1,4 @@
+# search for all device connections
 def parse_cdp_neighbors(command_output: str) -> dict:
     hostname = []
     parser_dict = {}
@@ -11,6 +12,7 @@ def parse_cdp_neighbors(command_output: str) -> dict:
     return parser_dict
 
 
+# creates a dictionary of all connections (not unique connections) between devices
 def create_network_map(filenames: list) -> dict:
     dict_back = {}
     for file in filenames:
@@ -19,6 +21,7 @@ def create_network_map(filenames: list) -> dict:
     return dict_back
 
 
+# creates a dictionary of all unique connections between devices
 def unique_network_map(topology_dict: dict) -> dict:
     network_map = {}
     for key, value in topology_dict.items():

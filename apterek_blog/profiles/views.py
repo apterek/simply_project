@@ -5,6 +5,7 @@ from core.models import Post
 from profiles.services import user_information, update_user_information
 
 
+# viewing the profile of the current user
 class ProfileView(TemplateView):
     template_name = "profile/user_profile_page.html"
 
@@ -16,6 +17,7 @@ class ProfileView(TemplateView):
             return {"profile": profile, "posts": posts}
 
 
+# update the profile of the current user
 class UpdateProfile(CreateView):
     template_name = "profile/update_profile_page.html"
 

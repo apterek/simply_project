@@ -22,6 +22,7 @@ class RegistrationForm(forms.Form):
     subscribe_check = forms.BooleanField(widget=forms.CheckboxInput(
         attrs={"class": "form-check-input"}), required=False)
 
+    # Email field validation
     def clean_email(self):
         cleaned_data = super().clean()
         email = cleaned_data.get("email")
@@ -31,13 +32,14 @@ class RegistrationForm(forms.Form):
             raise ValidationError("This email already is used")
         return cleaned_data
 
+    # validation match passwords
     def clean_confirm_password(self):
         cleaned_data = super().clean()
         password = cleaned_data.get("password")
         confirm_password = cleaned_data.get("confirm_password")
         if password and confirm_password:
             if password != confirm_password:
-                raise ValidationError("Password will be math !!!")
+                raise ValidationError("Password will be match !!!")
         return cleaned_data
 
 
