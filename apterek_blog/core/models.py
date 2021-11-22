@@ -16,6 +16,7 @@ class Post(models.Model):
     is_published = models.BooleanField(default=False)
     likes = models.PositiveIntegerField(default=0)
 
+
     class Meta:
         verbose_name = "Post"
         verbose_name_plural = "Posts"
@@ -83,3 +84,9 @@ class Subscribers(models.Model):
 
     def __str__(self):
         return f"{self.email}"
+
+
+class ExchangeRate(models.Model):
+    exchange_rate_usd = models.PositiveIntegerField(default=0)
+    exchange_rate_eur = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True, db_index=True)

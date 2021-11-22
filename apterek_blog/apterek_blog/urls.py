@@ -9,7 +9,7 @@ urlpatterns = [
     path('api-auth/', include("rest_framework.urls")),
     path('profile/', include("profiles.urls")),
     path('network_utils/', include("network.urls")),
-
+    path("django-rq/", include("django_rq.urls")),
 ]
 
 if settings.DEBUG:

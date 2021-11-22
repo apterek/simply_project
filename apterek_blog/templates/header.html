@@ -14,6 +14,15 @@
                     <li class="nav-item">
 						<a class="nav-link ps-0" href="{% url 'about' %}">About</a>
 					</li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-0 disabled">Exchange rate:</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-0 disabled">1 BYN = {{ exchange_rate.exchange_rate_usd }} USD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-0 disabled">1 BYN = {{ exchange_rate.exchange_rate_usd }} EUR</a>
+                    </li>
                     {% if user.username == "hr" %}
 					<li class="nav-item">
 						<a class="nav-link ps-0" href="{% url 'about' %}">Resume</a>

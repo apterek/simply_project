@@ -1,6 +1,6 @@
 from django.shortcuts import redirect, render
 from django.urls import reverse_lazy
-from core.models import Post
+from core.models import Post, ExchangeRate
 from core.services import take_a_three_best_post, create_new_subscribe, search_post,\
     create_user, create_username_from_email
 from core.forms import SubscriberForm, RegistrationForm, LoginForm
@@ -32,6 +32,8 @@ class HomepageView(CreateView):
         paginator = Paginator(posts, 5)
         page = self.request.GET.get("page")
 
+        exchange_rate = ExchangeRate.objects.all().last()
+
         try:
             items = paginator.page(page)
         except PageNotAnInteger:
@@ -47,7 +49,8 @@ class HomepageView(CreateView):
 
         return {"post": posts, "best_post1": best_post1,
                 "best_post2": best_post2, "best_post3": best_post3, "form": form,
-                "page_range": page_range, "items": items}
+                "page_range": page_range, "items": items,
+                "exchange_rate": exchange_rate}
 
     def post(self, request, *args, **kwargs):
         subscribe_form = SubscriberForm(self.request.POST)
