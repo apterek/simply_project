@@ -19,11 +19,12 @@ services:
     expose:
       - "8000"
     volumes:
-      - "./django/blog/:/app/"
+      - "./apterek_blog/:/app/"
       - "static:/app/static"
       - "media:/app/media"
 
   worker:
+    restart: always
     env_file:
       - ./.env_app
     build:
@@ -33,7 +34,7 @@ services:
       - postgres
       - redis
     volumes:
-      - "./django/blog/:/app/"
+      - "./apterek_blog/:/app/"
 
   nginx:
     build: ./nginx
