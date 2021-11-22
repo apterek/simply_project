@@ -20,3 +20,4 @@ RUN apt-get autoremove -y --purge && \
     apt-get clean -y
 
 COPY ./apterek_blog/entrypoint.sh /app/entrypoint.sh
+RUN apt-get install graphviz
