@@ -1,0 +1,310 @@
+{% load static %}
+<div class="container" style="padding-left: 40px;padding-right: 40px;">
+<header class="navbar-light navbar-sticky header-static py-1 my-1 shadow-custom">
+    <!-- first nav + border -->
+
+	<div class="navbar-top d-none d-lg-block small">
+		<div class="container">
+			<div class="d-md-flex justify-content-between align-items-center my-2">
+				<!-- Top bar left -->
+				<ul class="nav">
+                    <li class="nav-item">
+						<a class="nav-link ps-0" href="{% url 'home' %}">Main</a>
+					</li>
+                    <li class="nav-item">
+						<a class="nav-link ps-0" href="{% url 'about' %}">About</a>
+					</li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-0 disabled">Exchange rate:</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-0 disabled">1 BYN = {{ exchange_rate.exchange_rate_usd }} USD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link ps-0 disabled">1 BYN = {{ exchange_rate.exchange_rate_usd }} EUR</a>
+                    </li>
+                    {% if user.username == "hr" %}
+					<li class="nav-item">
+						<a class="nav-link ps-0" href="{% url 'about' %}">Resume</a>
+					</li>
+                    {% endif %}
+
+				</ul>
+				<!-- Top bar right -->
+				<div class="d-flex align-items-center">
+
+					<ul class="nav">
+
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <div class="dropdown">
+                              <a href="#" class="d-flex align-items-center justify-content-center
+                               link-dark text-decoration-none dropdown-toggle" id="dropdownUser3"
+                                 data-bs-toggle="dropdown" aria-expanded="false" style="padding-top: 7px;">
+                                    <strong>{{ user.username }}</strong>
+
+                              </a>
+                              <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownUser3">
+                                <li><a class="dropdown-item" href="#">Add post</a></li>
+                                <li><a class="dropdown-item" href="{% url "update_profile" %}">Settings</a></li>
+                                <li><a class="dropdown-item" href="{% url "profile_url" %}">Profile</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="{% url "logout" %}">Logout</a></li>
+                              </ul>
+                            </div>
+
+                        </li>
+                        {% else %}
+						<li class="nav-item">
+                            <a class="nav-link ps-0" href="{% url "registering" %}">Login / Join</a>
+						</li>
+                        {% endif %}
+					</ul>
+				</div>
+			</div>
+			<!-- Border line  -->
+			<div class="border-bottom border-2" style="color: rgb(88, 92, 104)"></div>
+		</div>
+	</div>
+    <!-- second header -->
+
+
+
+	 <nav class="navbar navbar-expand-lg">
+		<div class="container">
+			<a class="navbar-brand media-right" style="width: 120px;" href="{% url 'home' %}">
+				<img class="navbar-brand-item light-mode-item"  src="../../static/logo2.png" alt="lsssas" height="70">
+			</a>
+
+            <button class="navbar-toggler ms-auto collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="text-body h6 d-none d-sm-inline-block">Menu</span>
+			  <span class="navbar-toggler-icon"></span>
+		  </button>
+
+
+			<!-- Main navbar START -->
+			<div class="collapse navbar-collapse" id="navbarCollapse">
+            {% if user.is_authenticated %}
+				<ul class="navbar-nav navbar-nav-scroll mx-auto">
+					<!-- Nav dropdown 1 -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle active" href="#" id="homeMenu" role="button" data-bs-toggle="dropdown" aria-expanded="true">Post category</a>
+
+						<ul class="dropdown-menu" aria-labelledby="homeMenu">
+
+							<li> <a class="dropdown-item" href="{% url 'home_with_category' "network" %}">Network</a></li>
+							<li> <a class="dropdown-item" href="{% url 'home_with_category' "system" %}">System</a></li>
+							<li> <a class="dropdown-item" href="{% url 'home_with_category' "virtualization" %}">Virtualization </a></li>
+							<li> <a class="dropdown-item" href="{% url 'home_with_category' "revers" %}">Reverse engineering</a></li>
+							<li> <a class="dropdown-item" href="{% url 'home_with_category' "s&s" %}">Service and Soft</a></li>
+                            <li> <a class="dropdown-item" href="{% url 'home' %}">All Post</a></li>
+						</ul>
+					</li>
+                    <!-- Nav dropdown 2 -->
+					<li class="nav-item dropdown dropdown-fullwidth">
+						<a class="nav-link dropdown-toggle" href="#" id="megaMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Files checking</a>
+						<div class="dropdown-menu" aria-labelledby="megaMenu">
+							<div class="container">
+								<div class="row g-4 p-3 flex-fill">
+									<!-- Card item START -->
+									<div class="col-sm-6 col-lg-3">
+                                        <a href="#" class="btn-link text-reset fw-bold">
+										<div class="card bg-transparent">
+											<img class=" rounded" src="/media/win-10.png" alt="Card image">
+											<div class="card-body">
+												<h6 class="card-title mb-0">WIN-10/32-bit</h6>
+											</div>
+										</div>
+                                            </a>
+									</div>
+									<!-- Card item START -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <a href="#" class="btn-link text-reset fw-bold">
+										<div class="card bg-transparent">
+											<img class=" rounded" src="/media/win-10.png" alt="Card image">
+											<div class="card-body">
+												<h6 class="card-title mb-0">WIN-10/64-bit</h6>
+											</div>
+										</div>
+                                            </a>
+									</div>
+                                    <!-- Card item START -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <a href="#" class="btn-link text-reset fw-bold">
+										<div class="card bg-transparent">
+											<img class=" rounded" src="/media/linux.png" alt="Card image">
+											<div class="card-body">
+												<h6 class="card-title mb-0">Linux-Ubuntu-20.04/64-bit</h6>
+											</div>
+										</div>
+                                            </a>
+									</div>
+                                    <!-- Card item START -->
+                                    <div class="col-sm-6 col-lg-3">
+                                        <a href="#" class="btn-link text-reset fw-bold">
+										<div class="card bg-transparent">
+											<img class=" rounded" src="/media/linux.png" alt="Card image">
+											<div class="card-body">
+												<h6 class="card-title mb-0">Centos-8/64-bit</h6>
+											</div>
+										</div>
+                                            </a>
+									</div>
+								</div>
+							</div>
+						</div>
+					</li>
+
+					<!-- Nav dropdown 3 -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="pagesMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Network</a>
+						<ul class="dropdown-menu" aria-labelledby="pagesMenu">
+							<li> <a class="dropdown-item" href="{% url 'create_topology' %}">Create Topology</a></li>
+                            <li class="dropdown-divider"></li>
+							<li> <a class="dropdown-item" href="#">Topologies</a></li>
+							<li> <a class="dropdown-item" href="#">How  it works</a></li>
+						</ul>
+					</li>
+
+					<!-- Nav dropdown 4 -->
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="postMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard</a>
+						<ul class="dropdown-menu" aria-labelledby="postMenu">
+							<li> <a class="dropdown-item" href="#">Create Dashboard</a> </li>
+							<li class="dropdown-divider"></li>
+							<li> <a class="dropdown-item" href="#">My Dashboards</a> </li>
+						</ul>
+					</li>
+
+
+
+					<!-- Nav last-->
+					<li class="nav-item">	<a class="nav-link" href="#">Components</a></li>
+				</ul>
+                {% else %}
+                    <!-- Nav non authenticated user -->
+                    <ul class="navbar-nav navbar-nav-scroll mx-auto">
+                        <li class="nav-item">	<a class="nav-link" href="{% url 'home' %}">
+                            <input type="hidden" name="action" value="add">
+                            All posts
+                        </a></li>
+                        <li class="nav-item">	<a class="nav-link" href="{% url 'home_with_category' "network" %}">Network</a></li>
+                        <li class="nav-item">	<a class="nav-link" href="{% url 'home_with_category' "system" %}">System</a></li>
+                        <li class="nav-item">	<a class="nav-link" href="{% url 'home_with_category' "virtualization" %}">Virtualization</a></li>
+                        <li class="nav-item">   <a class="nav-link" href="{% url 'home_with_category' "s&s" %}">Service and Soft</a></li>
+                    </ul>
+                {% endif %}
+			</div>
+
+			<!-- Nav right sight -->
+			<div class="nav flex-nowrap align-items-center">
+                <!-- button Subscribe -->
+				<div class="nav-item d-none d-md-block">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                            data-bs-whatever="@getbootstrap" style="background-color: #217c4a;">Subscribe!</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1"
+                         aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Enter your email for subscribe</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                            <form action="{% url 'home' %}" method="post">
+                                {% csrf_token %}
+                                {{ form.non_field.errors }}
+                              <div class="mb-3">
+                                <label for="{{ form.email.id_for_label }}" class="col-form-label">Email:</label>
+                                {{ form.email }}
+                              </div>
+                                <div class="invalid-feedback">
+                                    {{ form.email.errors }}
+                                </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            style="background-color: #5b5d5b;">Close</button>
+                              <input type="hidden" name="action" value="add_subscriber">
+                            <button type="submit" class="btn btn-success"
+                             style="background-color: #217c4a;">Subscribe</button>
+                          </div>
+                            </form>
+
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+				</div>
+				<!-- Nav Search -->
+				<div class="nav-item dropdown dropdown-toggle-icon-none nav-search">
+					<a class="nav-link dropdown-toggle" role="button" id="navSearch" data-bs-toggle="dropdown" aria-expanded="false">
+						<img src="../../static/search_img.png" style="width: 30px">
+					</a>
+
+					<div class="dropdown-menu dropdown-menu-end shadow rounded p-2" style="width: 300px" aria-labelledby="navSearch">
+					  <nav class="navbar navbar-light bg-light">
+                          <div class="container-fluid">
+                            <form class="d-flex" action=".">
+                              <input class="form-control me-2" id="search_field" name="search_field"
+                                     type="search" placeholder="Search by posts" aria-label="Search">
+                              <button class="btn btn-outline-success" id="search_submit" type="submit">Search</button>
+                            </form>
+                          </div>
+                        </nav>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+	</nav>
+
+
+
+</header>
+</div>
+
+<style>
+
+.nav-link{
+    color: #4c5866;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: #4c5866;
+}
+
+.nav-link:hover, .nav-link:focus{
+    color: #0653ff;
+}
+
+.navbar-light .navbar-nav .nav-link.active {
+    color: #0653ff;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: #0653ff;
+}
+
+.dropdown-menu1.show {
+  display: block ruby;
+}
+
+.small, small {
+    font-size: .775em;
+}
+
+.fs-5 {
+    font-size: 1.2em !important;
+}
+
+.dropdown-toggle:focus{
+    outline:10px
+}
+
+.shadow-custom{
+    box-shadow: #FBD603;
+}
+
+</style>

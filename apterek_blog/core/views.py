@@ -27,7 +27,11 @@ class HomepageView(CreateView):
             posts = Post.objects.filter(category__category=category)
         else:
             posts = Post.objects.all()
-        best_post1, best_post2, best_post3 = take_a_three_best_post()
+        best_post1, best_post2, best_post3 = "", "", ""
+        try:
+            best_post1, best_post2, best_post3 = take_a_three_best_post()
+        except:
+            pass
         form = SubscriberForm()
         paginator = Paginator(posts, 5)
         page = self.request.GET.get("page")
@@ -46,7 +50,6 @@ class HomepageView(CreateView):
         start_index = index - 5 if index >= 5 else 0
         end_index = index + 5 if index <= max_index - 5 else max_index
         page_range = paginator.page_range[start_index:end_index]
-
         return {"post": posts, "best_post1": best_post1,
                 "best_post2": best_post2, "best_post3": best_post3, "form": form,
                 "page_range": page_range, "items": items,
