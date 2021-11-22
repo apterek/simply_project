@@ -19,4 +19,4 @@ RUN pip install --trusted-host pypi.org --no-cache-dir --upgrade pip && \
 RUN apt-get autoremove -y --purge && \
     apt-get clean -y
 
-COPY ./django/blog/entrypoint.sh /app/entrypoint.sh
+COPY ./apterek_blog/entrypoint.sh /app/entrypoint.sh
