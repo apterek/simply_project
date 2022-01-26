@@ -31,7 +31,7 @@ hyperlink==21.0.0
 idna==3.2
 incremental==21.3.0
 iniconfig==1.1.1
-ipython==7.27.0
+ipython==7.31.1
 itemadapter==0.4.0
 itemloaders==1.0.4
 jedi==0.18.0
